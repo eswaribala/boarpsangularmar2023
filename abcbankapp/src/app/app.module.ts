@@ -55,7 +55,11 @@ import {BreadcrumbModule} from "primeng/breadcrumb";
     TieredMenuModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+    MatFormFieldModule,
+    FormsModule
+
+
   ],
   providers: [Title],
   bootstrap: [AppComponent]

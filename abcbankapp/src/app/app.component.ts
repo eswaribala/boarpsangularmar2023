@@ -3,6 +3,8 @@ import {MenuService} from "./services/menu.service";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {Title} from "@angular/platform-browser";
 import {filter} from "rxjs";
+import { environment } from '../environments/environment';
+
 
 @Component({
   selector: 'app-root',
@@ -13,6 +15,11 @@ export class AppComponent {
   logoPath:string="../assets/images/logo.png";
   banner:string="../assets/images/banner.jfif";
   title:string ="ABC Bank"
+  //ng serve --configuration=staging
+  link = environment.link;
+  name = environment.name;
+  code = environment.code;
+
   menuDataInstance:any;
   constructor(private menuService:MenuService,
               private router:Router,private activatedRoute:ActivatedRoute,

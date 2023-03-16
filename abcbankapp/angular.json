@@ -45,6 +45,22 @@
             "scripts": []
           },
           "configurations": {
+            "staging": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.staging.ts"
+                }
+              ]
+            },
+            "testing": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.testing.ts"
+                }
+              ]
+            },
             "production": {
               "budgets": [
                 {
@@ -80,6 +96,12 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
+            "testing": {
+              "browserTarget": "abcbankapp:build:testing"
+            },
+            "staging": {
+              "browserTarget": "tabcbankapp:build:staging"
+            },
             "production": {
               "browserTarget": "abcbankapp:build:production"
             },

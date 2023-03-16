@@ -8,23 +8,25 @@ import {fromFetch} from "rxjs/fetch";
   styleUrls: ['./ba-directdebit.component.scss']
 })
 export class BaDirectdebitComponent implements OnInit {
+  message: any;
+  retrievedImage: any;
+  imageName: any;
 
   constructor() { }
 
   ngOnInit(): void {
-    /*
-    of(5, 8, 3)
-      .pipe(
-        map(id =>
-          fromFetch(`https://jsonplaceholder.typicode.com/todos/${id}`, {
-            selector: resp => resp.json()
-          })
-        ),
-        concatAll()
-      )
-      .subscribe(todo => console.log(todo.title));
 
-     */
   }
 
+  onFileChanged($event: Event) {
+    
+  }
+
+  onUpload() {
+    
+  }
+
+  getImage() {
+    
+  }
 }

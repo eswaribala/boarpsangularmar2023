@@ -1,6 +1,6 @@
 export const environment = {
-  production: true,
-  link:'http://production',
+  production: false,
+  link:'http://staging',
   name:'staging environment',
-  code: 1001,
+  code: 1003,
 };
