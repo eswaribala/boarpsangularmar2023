@@ -1,0 +1,145 @@
+<app-demat></app-demat>
+<form class="indForm" [formGroup]="individualFormGroup" (submit)="onSubmit()">
+<fieldset>
+  <legend>Add Individual Bank Account </legend>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Account No</mat-label>
+    <input type="number" matInput formControlName="accountNo" >
+    <mat-hint>Errors appear instantly!</mat-hint>
+    <mat-error *ngIf="f['accountNo'].hasError('pattern') && !f['accountNo'].hasError('required')">
+      Please enter a valid Account No
+    </mat-error>
+    <mat-error *ngIf="f['accountNo'].hasError('required')">
+      AccountNo is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>First Name</mat-label>
+    <input type="text" matInput formControlName="firstName" >
+    <mat-hint>Errors appear instantly!</mat-hint>
+    <mat-error *ngIf="f['firstName'].hasError('pattern') && !f['firstName'].hasError('required')">
+      Please enter a valid First Name
+    </mat-error>
+    <mat-error *ngIf="f['firstName'].hasError('required')">
+      FirstName is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Last Name</mat-label>
+    <input type="text" matInput formControlName="lastName" >
+    <mat-hint>Errors appear instantly!</mat-hint>
+    <mat-error *ngIf="f['lastName'].hasError('pattern') && !f['lastName'].hasError('required')">
+      Please enter a valid Last Name
+    </mat-error>
+    <mat-error *ngIf="f['lastName'].hasError('required')">
+      Last Name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>DOB</mat-label>
+    <input type="date" matInput formControlName="dob"  >
+    <mat-hint>Errors appear instantly!</mat-hint>
+
+   <!-- <mat-error *ngIf="f['dob'].hasError('pattern') && f['dob'].hasError('required')">
+      Please enter a valid DOB
+    </mat-error>-->
+    <mat-error *ngIf="f['dob'].hasError('required')">
+      DOB is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Address</mat-label>
+    <input type="text" matInput formControlName="address" >
+    <mat-hint>Errors appear instantly!</mat-hint>
+    <mat-error *ngIf="f['dob'].hasError('required')">
+      Address is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Contact No</mat-label>
+    <input type="number" matInput formControlName="contactNo" >
+    <mat-hint>Errors appear instantly!</mat-hint>
+    <mat-error *ngIf="f['contactNo'].hasError('pattern') && !f['contactNo'].hasError('required')">
+      Please enter a valid Contact No
+    </mat-error>
+    <mat-error *ngIf="f['contactNo'].hasError('required')">
+      Contact No is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Gender</mat-label>
+    <mat-select  [formControl]="selectedValue"  >
+      <mat-option *ngFor="let gender of genders" [value]="gender">
+        {{gender}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input type="text" matInput formControlName="email" >
+    <mat-hint>Errors appear instantly!</mat-hint>
+    <mat-error *ngIf="f['email'].hasError('pattern') && !f['email'].hasError('required')">
+      Please enter a valid Email
+    </mat-error>
+    <mat-error *ngIf="f['email'].hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Password</mat-label>
+    <input type="password" matInput formControlName="password" >
+    <mat-hint>Errors appear instantly!</mat-hint>
+    <mat-error *ngIf="f['password'].hasError('pattern') && !f['password'].hasError('required')">
+      Please enter a valid Password
+    </mat-error>
+    <mat-error *ngIf="f['password'].hasError('required')">
+      Password is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Confirm Password</mat-label>
+    <input type="password" matInput formControlName="confirmPassword" >
+    <mat-hint>Errors appear instantly!</mat-hint>
+    <mat-error *ngIf="f['confirmPassword'].hasError('pattern') && !f['confirmPassword'].hasError('required')">
+      Please enter a valid Email
+    </mat-error>
+    <mat-error *ngIf="f['confirmPassword'].hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+
+
+</fieldset>
+
+  <div class="form-group form-check">
+    <input
+      type="checkbox"
+      formControlName="acceptTerms"
+      class="form-check-input"
+      [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }"
+    />
+    <label for="acceptTerms" class="form-check-label">
+      I have read and agree to the Terms</label>
+    <div
+      *ngIf="submitted && f['acceptTerms'].errors"
+      class="invalid-feedback">
+      Accept Terms is required
+    </div>
+  </div>
+  <button mat-fab type="submit" color="primary" [disabled]="!individualFormGroup.valid" >
+    <mat-icon>lock_open</mat-icon>
+  </button>
+  <button mat-fab type="reset" color="warn" (click)="onReset()" [disabled]="!individualFormGroup.valid" >
+    <mat-icon>lock_open</mat-icon>
+  </button>
+</form>
+<div style="float: right; width:50%;">
+
+  <h3>Form Status</h3>
+  <b>status : </b>{{individualFormGroup.status}}
+</div>

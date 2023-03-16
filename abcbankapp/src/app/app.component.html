@@ -1,0 +1,22 @@
+<header class="header">
+<figure>
+  <img class="logo" src="{{logoPath}}"/>
+</figure>
+<h1 class="multicolortext">{{title}}</h1>
+<figure>
+  <img class="banner" src="{{banner}}"/>
+</figure>
+
+</header>
+<section class="content">
+  <div *ngIf="menuDataInstance?.length>0" class="menuClass">
+    <!--property binding-->
+    <p-tieredMenu [model]="menuDataInstance"  ></p-tieredMenu>
+
+  </div>
+  <article class="routerclass">
+    <router-outlet>
+
+    </router-outlet>
+  </article>
+</section>

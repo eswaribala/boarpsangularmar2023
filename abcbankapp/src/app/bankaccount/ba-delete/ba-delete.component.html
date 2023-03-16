@@ -1,0 +1,9 @@
+<!--<pre>
+  {{histogramData|async|json}}
+</pre>-->
+<button (click)="makeRequests()">Load</button>
+
+<pre *ngIf="data?.length>0">
+  {{data|json}}
+</pre>
+

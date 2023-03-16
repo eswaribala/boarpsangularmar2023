@@ -1,0 +1,41 @@
+.header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-around;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.logo{
+  width:100px;
+  height: 100px;
+}
+ .banner{
+  width:400px;
+  height: 100px;
+}
+.multicolortext {
+  background-image: linear-gradient(to left, navy,blue,skyblue,yellow,goldenrod);
+  -webkit-background-clip: text;
+  font-size: larger;
+  font-weight: bold;
+  color: transparent;
+  font-family: "Lucida Calligraphy"
+}
+.content{
+  display: inline;
+  width:100%;
+
+  justify-content:space-around;
+
+  color: white;
+}
+.menuClass{
+
+  width:25%;
+  float:left;
+}
+
+.routerclass{
+width:70%;
+}

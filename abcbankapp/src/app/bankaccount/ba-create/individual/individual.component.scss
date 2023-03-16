@@ -1,0 +1,47 @@
+.indForm
+{
+  width:700px;
+
+  background-color: #3aafa9;
+  border: 2px solid blue;
+  color:navy;
+  font-weight: bold;
+
+}
+.indForm fieldset
+{
+
+  width:700px;
+  border:2px solid white;
+
+}
+.indForm fieldset legend
+{
+
+  text-align: center;
+}
+
+
+.validation
+{
+  color: orangered;
+}
+.mat-form-field
+{
+margin-left:5%;
+  margin-right: 15%;
+
+}
+.indForm button[type=submit]
+{
+  width:20%;
+  margin-bottom: 2%;
+  margin-left: 10%;
+  margin-right: 25%;
+}
+.indForm button[type=reset]
+{
+  width:20%;
+  margin-bottom: 2%;
+
+}
