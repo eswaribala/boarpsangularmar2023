@@ -1,0 +1,49 @@
+{
+  "name": "accountapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.10.3",
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
+    "config": "^3.3.8",
+    "cors": "^2.8.5",
+    "elasticsearch": "^16.7.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "kafka-node": "^5.0.0",
+    "kafkajs": "^2.2.2",
+    "log-to-file": "^3.0.3",
+    "logtofile": "^0.1.4",
+    "mongoose": "^6.6.5",
+    "nodemon": "^2.0.20",
+    "swagger-autogen": "^2.22.0",
+    "swagger-jsdoc": "^6.2.5",
+    "swagger-ui-express": "^4.5.0",
+    "uuid": "^9.0.0",
+    "@opentelemetry/api": "^1.0.4",
+    "@opentelemetry/auto-instrumentations-node": "^0.28.0",
+    "@opentelemetry/exporter-jaeger": "^1.0.1",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.27.0",
+    "@opentelemetry/instrumentation": "^0.33.0",
+    "@opentelemetry/instrumentation-http": "^0.33.0",
+    "@opentelemetry/instrumentation-mongodb": "^0.29.0",
+    "@opentelemetry/resources": "^1.7.0",
+    "@opentelemetry/sdk-node": "^0.27.0",
+    "@opentelemetry/sdk-trace-base": "^1.7.0",
+    "@opentelemetry/sdk-trace-node": "^1.7.0",
+    "opentelemetry-instrumentation-express": "^0.27.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "@aspecto/opentelemetry": "^0.0.137",
+    "@opentelemetry/semantic-conventions": "^1.7.0"
+  }
+}
