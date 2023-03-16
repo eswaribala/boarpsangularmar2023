@@ -1,7 +1,8 @@
 import {Component, OnInit, Optional} from '@angular/core';
-import {concatAll, map, of} from "rxjs";
+import {concatAll, map, of, Subject, takeUntil, timer} from "rxjs";
 import {fromFetch} from "rxjs/fetch";
 import {ImageService} from "../../services/image.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-ba-directdebit',
@@ -16,10 +17,34 @@ export class BaDirectdebitComponent implements OnInit {
   private retrieveResponse: any;
   private base64Data: any;
 
-  constructor(@Optional() private imageService:ImageService) { }
+  destroy = new Subject();
+  showDialog = false;
+  timer: number;
+  dialog = 'upload file within 20s?';
+  notice = 'Sorry, I am redirecting to Home Page';
+  showNotice = false;
+
+
+  rxjsTimer = timer(1000, 1000);
+
+  constructor(@Optional() private imageService:ImageService,private router:Router) { }
 
   ngOnInit(): void {
+//actual timer
+    this.rxjsTimer.pipe(takeUntil(this.destroy)).subscribe(val => {
+      this.timer = val;
 
+      if (this.timer === 10) {
+        this.showDialog = true;
+      }
+
+      if (this.timer >= 20) {
+        this.destroy.next(1);
+        this.destroy.complete();
+        this.showNotice = true;
+        this.router.navigate(['/']);
+      }
+    })
   }
 
   onFileChanged($event: any) {
