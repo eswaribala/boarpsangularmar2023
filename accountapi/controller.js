@@ -1,5 +1,5 @@
 const db = require("./dbserver");
-const elasticsearch = require("elasticsearch");
+
 const Account = db.accounts;
 const log = require("log-to-file");
 // Create and Save a new Customer
@@ -144,49 +144,7 @@ exports.deleteByAccountNo=(req,res)=>{
     });
 }
 
-const amqplib=require('amqplib');
-let rabbitConnection;
-let exchange = 'logs'
 
-//step 1
-amqplib.connect('amqp://localhost').then(connection => rabbitConnection = connection);
-
-//step 2
-const sendRabbitMqMessage = async (message) => {
-    const channel = await rabbitConnection.createChannel();
-    await channel.assertExchange(exchange , 'fanout')
-    await channel.publish(exchange, '', Buffer.from(message))
-}
-
-exports.publishData=async (req, res) => {
-//step 3
-    const message = req.body.message;
-    console.log(`Send message: '${message}'`);
-    await sendRabbitMqMessage(message);
-    res.send(message)
-
-}
-
-const { Kafka } = require("kafkajs");
-
-
-
-exports.publishDataOnKafka=async (req, res) => {
-//step 3
-    const kafka = new Kafka({ brokers: ["localhost:9092"] });
-    const producer = kafka.producer();
-    const message = req.body.message;
-    await producer.connect();
-
-    await producer.send({
-        topic: "account-notify",
-        messages: [
-            { value: message },
-        ]
-    });
-    res.send(message)
-
-}
 
 
 
