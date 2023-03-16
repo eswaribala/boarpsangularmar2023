@@ -142,6 +142,31 @@ export class BaDeleteComponent implements OnInit {
     },2000);
 
 
+    //async Iterable
+    const delayedResponses = {
+      delays: [500, 1300, 3500],
+
+      wait(delay:any) {
+        return new Promise(resolve => {
+          setTimeout(resolve, delay);
+        });
+      },
+
+      async *[Symbol.asyncIterator]() {
+        for (const delay of this.delays) {
+          await this.wait(delay);
+          yield `Delayed response for ${delay} milliseconds`;
+        }
+      },
+    };
+//it will display message after 500ms, 1300ms and 3500 ms 3 times
+    (async() => {
+      for await (const response of delayedResponses) {
+        console.log(response);
+      }
+    })();
+
+
   }
 
 
