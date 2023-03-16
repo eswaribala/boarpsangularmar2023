@@ -28,9 +28,10 @@ import {MatOptionModule} from "@angular/material/core";
 import { DynamicComponent } from './bankaccount/ba-create/corporate/dynamic/dynamic.component';
 import {DematComponent} from "./bankaccount/ba-create/demat/demat.component";
 import {AgGridModule} from 'ag-grid-angular';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {BreadcrumbModule} from "primeng/breadcrumb";
 import {ButtonModule} from "primeng/button";
+import { MockService } from './interceptors/mock.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +64,11 @@ import {ButtonModule} from "primeng/button";
 
 
   ],
-  providers: [Title],
+  providers: [Title,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: MockService,
+    multi: true
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

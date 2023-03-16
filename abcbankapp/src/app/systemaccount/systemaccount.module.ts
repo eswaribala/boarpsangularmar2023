@@ -7,6 +7,7 @@ import { SaDeleteComponent } from './sa-delete/sa-delete.component';
 
 import {RouterModule} from "@angular/router";
 import {SystemAccountRoutingModule} from "./systemaccount-routing.module";
+import {HttpClientModule} from "@angular/common/http";
 
 
 
@@ -20,7 +21,8 @@ import {SystemAccountRoutingModule} from "./systemaccount-routing.module";
   ],
   imports: [
     CommonModule,
-    SystemAccountRoutingModule
+    SystemAccountRoutingModule,
+    HttpClientModule
 
   ]
 })
