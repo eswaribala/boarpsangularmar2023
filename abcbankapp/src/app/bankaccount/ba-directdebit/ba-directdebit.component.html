@@ -1,8 +1,15 @@
 <div class="warning">
-<h2>{{ timer }}</h2>
+<h2>Timer starts, Hurry up and complete the task {{ timer }}</h2>
 <p *ngIf="showDialog">{{ dialog }}</p>
-<p *ngIf="showNotice">{{ notice }}</p>
+
 </div>
+<div *ngIf="showNotice">
+  <h5>{{notice}}</h5>
+  <button type="button" pButton pRipple (click)="showConfirm()" label="Confirm" class="ui-button-warning">
+
+  </button>
+</div>
+
   <section class="upload">
   <div class="container row">
     <div class="col-md-12">

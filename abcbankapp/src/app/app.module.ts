@@ -30,6 +30,7 @@ import {DematComponent} from "./bankaccount/ba-create/demat/demat.component";
 import {AgGridModule} from 'ag-grid-angular';
 import {HttpClientModule} from "@angular/common/http";
 import {BreadcrumbModule} from "primeng/breadcrumb";
+import {ButtonModule} from "primeng/button";
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +58,8 @@ import {BreadcrumbModule} from "primeng/breadcrumb";
     HttpClientModule,
     BreadcrumbModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    ButtonModule
 
 
   ],

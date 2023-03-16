@@ -3,11 +3,12 @@ import {concatAll, map, of, Subject, takeUntil, timer} from "rxjs";
 import {fromFetch} from "rxjs/fetch";
 import {ImageService} from "../../services/image.service";
 import {Router} from "@angular/router";
-
+import {MessageService} from 'primeng/api';
 @Component({
   selector: 'app-ba-directdebit',
   templateUrl: './ba-directdebit.component.html',
-  styleUrls: ['./ba-directdebit.component.scss']
+  styleUrls: ['./ba-directdebit.component.scss'],
+  providers:[MessageService]
 })
 export class BaDirectdebitComponent implements OnInit {
   message: any;
@@ -27,7 +28,8 @@ export class BaDirectdebitComponent implements OnInit {
 
   rxjsTimer = timer(1000, 1000);
 
-  constructor(@Optional() private imageService:ImageService,private router:Router) { }
+  constructor(@Optional() private imageService:ImageService,private router:Router,
+              private messageService:MessageService ) { }
 
   ngOnInit(): void {
 //actual timer
@@ -42,7 +44,7 @@ export class BaDirectdebitComponent implements OnInit {
         this.destroy.next(1);
         this.destroy.complete();
         this.showNotice = true;
-        this.router.navigate(['/']);
+      //  this.router.navigate(['/']);
       }
     })
   }
@@ -76,5 +78,11 @@ export class BaDirectdebitComponent implements OnInit {
           this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
         }
       );
+  }
+
+  showConfirm() {
+    this.messageService.clear();
+    //this.messageService.add({key: 'c', sticky: true, severity:'warn', summary:'Are you sure?', detail:'Confirm to proceed'});
+    this.router.navigate(['/']);
   }
 }
