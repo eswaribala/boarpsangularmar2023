@@ -1,13 +1,13 @@
 import {Component, OnInit, Optional} from '@angular/core';
 import {
-  combineLatest, combineLatestWith, concatWith,
-  EMPTY,
+  combineLatest, combineLatestWith, concatWith, connectable,
+  EMPTY, filter,
   firstValueFrom,
   forkJoin,
   from,
   groupBy,
   interval, lastValueFrom,
-  map,
+  map, merge,
   mergeMap,
   mergeWith,
   Observable,
@@ -122,7 +122,29 @@ export class BaDeleteComponent implements OnInit {
       .subscribe(error => {
         console.log(error)
       });
+
+    //connect and connectable
+    const data=of("TCS","hcl","Infosys","BOA","cts");
+    const connectableData=connectable(data);
+   const lowerData=connectableData.pipe(
+      filter(x=>x.toLowerCase() == x),
+      map(x=>`lower ${x.toUpperCase()}`)
+    )
+    const upperData=connectableData.pipe(
+      filter(x=>x.toUpperCase() == x),
+      map(x=>`lower ${x.toLowerCase()}`)
+    )
+    merge(lowerData,upperData).subscribe(console.log);
+
+    setTimeout(()=>{
+      console.log("connect data");
+      connectableData.connect()
+    },2000);
+
+
   }
+
+
 }
 
 /*
