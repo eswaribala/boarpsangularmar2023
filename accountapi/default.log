@@ -313,3 +313,14 @@
   updatedAt: 2022-10-21T16:04:23.687Z,
   __v: 0
 }
+2023.03.16, 15:18:47.0901 UTC -> {
+  _id: new ObjectId("64133294c0bfa7ca6901f44f"),
+  accountNo: 12345,
+  dateOfOpening: '2023-03-05',
+  roi: 0.85,
+  balance: 50000,
+  accountType: 'savings',
+  createdAt: 2023-03-16T15:15:33.016Z,
+  updatedAt: 2023-03-16T15:15:33.016Z,
+  __v: 0
+}

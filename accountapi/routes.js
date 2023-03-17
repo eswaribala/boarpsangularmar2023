@@ -21,7 +21,7 @@ module.exports = app => {
 
     router.delete("/:accountNo",controller.deleteByAccountNo);
 
- 
+
 
     //versioning
     //app.use("/api/customers/v1.0", router);

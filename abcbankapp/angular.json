@@ -36,8 +36,8 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss",
+              "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeng/resources/themes/vela-purple/theme.css",
               "node_modules/primeng/resources/primeng.min.css"
@@ -65,13 +65,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "4mb"
                 },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumError": "50kb"
                 }
               ],
               "fileReplacements": [
@@ -100,7 +100,7 @@
               "browserTarget": "abcbankapp:build:testing"
             },
             "staging": {
-              "browserTarget": "tabcbankapp:build:staging"
+              "browserTarget": "abcbankapp:build:staging"
             },
             "production": {
               "browserTarget": "abcbankapp:build:production"
@@ -130,10 +130,10 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss",
+              "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+
               "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+              "node_modules/primeng/resources/themes/vela-purple/theme.css",
               "node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": []

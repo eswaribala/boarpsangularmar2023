@@ -4,6 +4,7 @@ const Account = db.accounts;
 const log = require("log-to-file");
 // Create and Save a new Customer
 exports.create = (req, res) => {
+    console.log(req.body);
     // Validate request
     if (!req.body.accountNo) {
         res.status(400).send({ message: "Content can not be empty!" });

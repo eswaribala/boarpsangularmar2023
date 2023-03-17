@@ -10,67 +10,92 @@ import {BaDepositComponent} from "./bankaccount/ba-deposit/ba-deposit.component"
 import {BaWithdrawComponent} from "./bankaccount/ba-withdraw/ba-withdraw.component";
 import {BankComponent} from "./bankaccount/bank/bank.component";
 import {BaDirectdebitComponent} from "./bankaccount/ba-directdebit/ba-directdebit.component";
+import {SigninComponent} from "./signin/signin.component";
+import {SignupComponent} from "./signup/signup.component";
+import {AuthGuard} from "./services/authguard";
 
 const routes: Routes = [
+  { path: '', redirectTo: '/log-in', pathMatch: 'full' },
+  { path: 'log-in', component: SigninComponent },
+  { path: 'sign-up', component: SignupComponent },
   {
+    path: 'Menu',
+    component: MenuComponent,
+    canActivate: [AuthGuard],
 
-      path: 'BankAccount',
-      component:BankComponent,
-      children:[{
-        path: 'Create',
-        component: BaCreateComponent,
-       // title:'Create Bank Account',
-        data:{title:'Create Bank Account'}
+    children:[
+      {
+
+        path: 'BankAccount',
+        component:BankComponent,
+
+        children:[{
+          path: 'Create',
+          component: BaCreateComponent,
+
+          // title:'Create Bank Account',
+          data:{title:'Create Bank Account'}
+        },
+          {
+            path: 'Edit',
+            component: BaEditComponent,
+
+            //  title:'Edit Bank Account',
+            data:{title:'Edit Bank Account'}
+          },
+          {
+            path: 'View',
+            component: BaViewComponent,
+
+            // title:'View Bank Account',
+            data:{title:'View Bank Account'}
+          },
+          {
+            path: 'Delete',
+            component: BaDeleteComponent,
+
+            // title:'Delete Bank Account',
+            data:{title:'Delete Bank Account'}
+          },
+          {
+            path: 'Transfer',
+            component: BaTransferComponent,
+
+            //title:'Transfer Money',
+            data:{title:'Transfer Money'}
+          },
+          {
+            path: 'Deposit',
+            component: BaDepositComponent,
+
+            // title:'Deposit Money',
+            data:{title:'Deposit Money'}
+          },
+          {
+            path: 'Withdraw',
+            component: BaWithdrawComponent,
+
+            //title:'Withdraw Money',
+            data:{title:'Withdraw  Money'}
+          },
+          {
+            path: 'DirectDebit',
+            component: BaDirectdebitComponent,
+
+            //title:'Direct Debit',
+            data:{title:'Direct Debit'}
+          }
+        ]
       },
-        {
-          path: 'Edit',
-          component: BaEditComponent,
-        //  title:'Edit Bank Account',
-          data:{title:'Edit Bank Account'}
-        },
-        {
-          path: 'View',
-          component: BaViewComponent,
-         // title:'View Bank Account',
-          data:{title:'View Bank Account'}
-        },
-        {
-          path: 'Delete',
-          component: BaDeleteComponent,
-         // title:'Delete Bank Account',
-          data:{title:'Delete Bank Account'}
-        },
-        {
-          path: 'Transfer',
-          component: BaTransferComponent,
-          //title:'Transfer Money',
-          data:{title:'Transfer Money'}
-        },
-        {
-          path: 'Deposit',
-          component: BaDepositComponent,
-         // title:'Deposit Money',
-          data:{title:'Deposit Money'}
-        },
-        {
-          path: 'Withdraw',
-          component: BaWithdrawComponent,
-          //title:'Withdraw Money',
-          data:{title:'Withdraw  Money'}
-        },
-        {
-          path: 'DirectDebit',
-          component: BaDirectdebitComponent,
-          //title:'Direct Debit',
-          data:{title:'Direct Debit'}
-        }
-      ]
-    },
       {
         path:'SystemAccount',
         loadChildren: () => import('./systemaccount/systemaccount.module')
           .then(m => m.SystemAccountModule)
       }
+    ]
+  },
+
+
 
 ];
 

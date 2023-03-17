@@ -7,12 +7,11 @@ import {MenuService} from "../services/menu.service";
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-/*
+
   menuDataInstance:any;
   constructor(private menuService:MenuService) { }
-*/
   ngOnInit(): void {
-  //  this.menuDataInstance=this.menuService.loadMenuData();
+    this.menuDataInstance=this.menuService.loadMenuData();
   }
 
 }

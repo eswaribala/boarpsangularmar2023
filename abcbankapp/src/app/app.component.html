@@ -8,12 +8,16 @@
 </figure>
 
 </header>
-<section class="content">
-  <div *ngIf="menuDataInstance?.length>0" class="menuClass">
-    <!--property binding-->
-    <p-tieredMenu [model]="menuDataInstance"  ></p-tieredMenu>
 
-  </div>
+<section class="content">
+  <a *ngIf="!this.authService.isLoggedIn" routerLinkActive="active" routerLink="/log-in">Sign
+    in</a>
+
+  <a *ngIf="!this.authService.isLoggedIn"
+     routerLinkActive="active" routerLink="/sign-up">Sign up</a>
+  <button (click)="logout()" *ngIf="this.authService.isLoggedIn" type="button" class="btn btn-danger">Logout</button>
+
+
   <article class="routerclass">
     <router-outlet>
 

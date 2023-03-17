@@ -8,6 +8,9 @@ import { SaDeleteComponent } from './sa-delete/sa-delete.component';
 import {RouterModule} from "@angular/router";
 import {SystemAccountRoutingModule} from "./systemaccount-routing.module";
 import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
+import {PricerComponent} from "./sa-view/pricercomponent";
+import {TagInputModule} from "ngx-chips";
 
 
 
@@ -17,12 +20,15 @@ import {HttpClientModule} from "@angular/common/http";
     SaEditComponent,
     SaViewComponent,
     SaDeleteComponent,
-
+    PricerComponent
   ],
   imports: [
     CommonModule,
     SystemAccountRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    TagInputModule
+
 
   ]
 })

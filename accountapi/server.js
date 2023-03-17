@@ -1,4 +1,3 @@
-const tracer = require("./tracing")("account-service");
 const express=require("express");
 const bodyParser=require('body-parser');
 const cors=require('cors');
@@ -23,7 +22,7 @@ app.use(cors());
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const auth = require("./auth");
-const elasticsearch = require("elasticsearch");
+
 
 db.mongoose
     .connect(db.url, {

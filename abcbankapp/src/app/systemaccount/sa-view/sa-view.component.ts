@@ -8,6 +8,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class SaViewComponent implements OnInit {
 
+  assets = []
   constructor() { }
 
   ngOnInit(): void {

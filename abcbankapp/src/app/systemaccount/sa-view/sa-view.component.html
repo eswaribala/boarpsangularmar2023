@@ -1,1 +1,11 @@
-<p>sa-view works!</p>
+<h1>Crypto Prices</h1>
+
+<tag-input [(ngModel)]="assets" [modelAsStrings]="true" [onlyFromAutocomplete]="true">
+  <tag-input-dropdown [keepOpen]="false" [showDropdownIfEmpty]="true"
+                      [autocompleteItems]="['bitcoin', 'litecoin', 'ethereum']">
+  </tag-input-dropdown>
+</tag-input>
+
+<div *ngFor="let asset of assets">
+  <pricer [id]="asset"></pricer>
+</div>

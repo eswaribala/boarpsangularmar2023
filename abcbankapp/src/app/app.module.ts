@@ -32,6 +32,10 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {BreadcrumbModule} from "primeng/breadcrumb";
 import {ButtonModule} from "primeng/button";
 import { MockService } from './interceptors/mock.service';
+import { SignupComponent } from './signup/signup.component';
+import { SigninComponent } from './signin/signin.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +51,10 @@ import { MockService } from './interceptors/mock.service';
     BankComponent,
 
    // CorporateComponent,
-    DynamicComponent
+    DynamicComponent,
+    SignupComponent,
+    SigninComponent
+
 
   ],
   imports: [
@@ -60,8 +67,9 @@ import { MockService } from './interceptors/mock.service';
     BreadcrumbModule,
     MatFormFieldModule,
     FormsModule,
-    ButtonModule
+    ButtonModule,
 
+    ReactiveFormsModule
 
   ],
   providers: [Title,{

@@ -4,6 +4,7 @@ import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {Title} from "@angular/platform-browser";
 import {filter} from "rxjs";
 import { environment } from '../environments/environment';
+import {AuthService} from "./services/authservice";
 
 
 @Component({
@@ -23,7 +24,7 @@ export class AppComponent {
   menuDataInstance:any;
   constructor(private menuService:MenuService,
               private router:Router,private activatedRoute:ActivatedRoute,
-              @Optional() private titleService:Title) { }
+              @Optional() private titleService:Title,public authService:AuthService) { }
 
   ngOnInit(): void {
       this.router.events.pipe(
@@ -47,5 +48,9 @@ export class AppComponent {
       else
         return activatedRoute;
 
+  }
+
+  logout() {
+    this.authService.doLogout()
   }
 }
