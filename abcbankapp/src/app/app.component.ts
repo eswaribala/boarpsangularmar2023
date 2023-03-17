@@ -13,8 +13,8 @@ import {AuthService} from "./services/authservice";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  logoPath:string="../assets/images/logo.png";
-  banner:string="../assets/images/banner.jfif";
+  logoPath:string="assets/images/logo.png";
+  banner:string="assets/images/banner.jfif";
   title:string ="ABC Bank"
   //ng serve --configuration=staging
   link = environment.link;
