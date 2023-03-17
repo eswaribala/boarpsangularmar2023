@@ -1,14 +1,10 @@
 # stage 1
 FROM node:alpine
-WORKDIR /usr/app
-COPY package*.json ./
+RUN mkdir -p /app
+WORKDIR /app
+COPY package*.json /app
 RUN npm install --force
-COPY . .
+COPY . /app
 EXPOSE 4200
 CMD npm run build --prod
-
-# Stage 2
-FROM nginx:alpine
-
-COPY --from=node /usr/app/dist/abcbankapp /usr/share/nginx/html
 
